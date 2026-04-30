@@ -3,7 +3,7 @@
 <template>
   <header>
     <nav>
-      <ul>
+      <ul class="header">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
@@ -12,4 +12,16 @@
   </header>
 </template>
 
-<style></style>
+<style>
+.header {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.header li a {
+  text-decoration: none;
+  color: inherit;
+}
+</style>

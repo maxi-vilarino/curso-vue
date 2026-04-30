@@ -23,18 +23,37 @@ const movies = ref([
 
 let myCondition = true;
 
-const text = "Hello from ";
+const text = "Hello ";
 const person = {
   name: "John",
   age: 30,
+};
+
+const displayName = ref("");
+
+const handleLogin = (e) => {
+  displayName.value = e;
+  console.log(displayName);
 };
 </script>
 
 <template>
   <HeaderComponent />
-  <ChildComponent :msg="text" :person="person" />
+  <ChildComponent :msg="text" :person="person" @login="handleLogin">
+    <template #top>
+      <h3>Contenido personalizado Top</h3>
+    </template>
+    <p>
+      Este es un contenido adicional que se muestra dentro del componente hijo.
+    </p>
+    <template #botton>
+      <h3>Contenido personalizado Botton</h3>
+    </template>
+  </ChildComponent>
   <div class="container">
-    <h1 :id="myId" :class="myCondition ? 'highlight' : ''">Hola Mundo!!!!</h1>
+    <h1 :id="myId" :class="myCondition ? 'highlight' : ''">
+      Hola {{ displayName }}
+    </h1>
     <h2 v-if="condition">La condición se cumple</h2>
     <h2 v-else-if="anotherCondition">Otra condición se cumple</h2>
     <h2 v-else>No se cumple ninguna condición</h2>
