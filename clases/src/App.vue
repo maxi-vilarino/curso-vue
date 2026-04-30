@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import HeaderComponent from "./components/HeaderComponent.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
 let number = ref(0);
 
@@ -21,10 +22,17 @@ const movies = ref([
 ]);
 
 let myCondition = true;
+
+const text = "Hello from ";
+const person = {
+  name: "John",
+  age: 30,
+};
 </script>
 
 <template>
   <HeaderComponent />
+  <ChildComponent :msg="text" :person="person" />
   <div class="container">
     <h1 :id="myId" :class="myCondition ? 'highlight' : ''">Hola Mundo!!!!</h1>
     <h2 v-if="condition">La condición se cumple</h2>
@@ -73,6 +81,7 @@ let myCondition = true;
 
 .movie {
   color: orange;
+  font-weight: bold;
   list-style: none;
 }
 </style>
