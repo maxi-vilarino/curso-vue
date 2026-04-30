@@ -11,8 +11,14 @@ const increment = () => {
 const myId = "some-id";
 const myValue = ref("some value");
 
-const condition = false;
+const condition = true;
 const anotherCondition = false;
+
+const movies = ref([
+  { id: 1, title: "Movie 1" },
+  { id: 2, title: "Movie 2" },
+  { id: 3, title: "Movie 3" },
+]);
 
 let myCondition = true;
 </script>
@@ -28,6 +34,13 @@ let myCondition = true;
     <button @click="increment">Incrementar</button>
     <h2>{{ myValue }}</h2>
     <input type="text" v-model="myValue" />
+    <div class="movies-container">
+      <ul class="movies">
+        <li v-for="movie in movies" :key="movie.id" class="movie">
+          {{ movie.title }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -44,5 +57,22 @@ let myCondition = true;
 .highlight {
   color: red;
   font-weight: bold;
+}
+
+.movies-container {
+  background-color: green;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.movies {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.movie {
+  color: orange;
+  list-style: none;
 }
 </style>
