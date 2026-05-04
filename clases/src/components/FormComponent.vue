@@ -8,20 +8,28 @@ const movies = reactive({
   title: "",
   director: "",
   duration: 0,
+  releaseYear: 0,
 });
 
 const handleSubmit = () => {
-  if (movies.title && movies.director && movies.duration) {
+  if (
+    movies.title &&
+    movies.director &&
+    movies.duration &&
+    movies.releaseYear
+  ) {
     movieStore.addMovie({
       id: Date.now(),
       title: movies.title,
       director: movies.director,
-      releaseYear: new Date().getFullYear(),
+      releaseYear: movies.releaseYear,
     });
-    console.log("Movie submitted:", movies);
+    movies.title = "";
+    movies.director = "";
+    movies.duration = 0;
+    movies.releaseYear = 0;
   } else {
     alert("Please fill in all fields.");
-    console.log("Please fill in all fields.");
     return;
   }
 };
@@ -38,6 +46,9 @@ const handleSubmit = () => {
 
     <label for="duration">Duration:</label>
     <input type="number" id="duration" v-model="movies.duration" />
+
+    <label for="releaseYear">Release Year:</label>
+    <input type="number" id="releaseYear" v-model="movies.releaseYear" />
 
     <button type="submit">Submit</button>
   </form>
