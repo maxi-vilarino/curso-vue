@@ -12,7 +12,9 @@ const { movies } = movieStore;
   <div class="movies-container">
     <ul class="movies">
       <li v-for="movie in movies" :key="movie.id" class="movie-card">
-        <p>{{ movie.title }}</p>
+        <router-link :to="{ name: 'MovieDetails', params: { id: movie.id } }">
+          <h2>{{ movie.title }}</h2>
+        </router-link>
         <p>Directed by {{ movie.director }}</p>
         <p>Released in {{ movie.releaseYear }}</p>
       </li>
