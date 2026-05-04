@@ -1,7 +1,15 @@
 <script setup>
+import { onMounted, onUnmounted } from "vue";
 import { useUserStore } from "../stores/user";
 
 const userStore = useUserStore();
+onMounted(() => {
+  userStore.fetchUser();
+});
+
+onUnmounted(() => {
+  console.log("Componente desmonado");
+});
 </script>
 
 <template>

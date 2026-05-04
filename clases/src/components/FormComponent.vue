@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue";
+import { onUpdated, reactive } from "vue";
 import { useMovieStore } from "../stores/movie";
 import router from "../router";
 
@@ -32,6 +32,10 @@ const handleSubmit = () => {
     movies.releaseYear = 0;
 
     router.push({ name: "Movies" });
+
+    onUpdated(() => {
+      console.log("Movie added:", movies);
+    });
   } else {
     alert("Please fill in all fields.");
     return;
