@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import ChildComponent from "./components/ChildComponent.vue";
+import FormComponent from "./components/FormComponent.vue";
 
 let number = ref(0);
 
@@ -50,6 +51,7 @@ const handleLogin = (e) => {
       <h3>Contenido personalizado Botton</h3>
     </template>
   </ChildComponent>
+  <FormComponent />
   <div class="container">
     <h1 :id="myId" :class="myCondition ? 'highlight' : ''">
       Hola {{ displayName }}
