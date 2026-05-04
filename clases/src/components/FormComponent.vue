@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import { useMovieStore } from "../stores/movie";
+import router from "../router";
 
 const movieStore = useMovieStore();
 
@@ -22,12 +23,15 @@ const handleSubmit = () => {
       id: Date.now(),
       title: movies.title,
       director: movies.director,
+      duration: movies.duration,
       releaseYear: movies.releaseYear,
     });
     movies.title = "";
     movies.director = "";
     movies.duration = 0;
     movies.releaseYear = 0;
+
+    router.push({ name: "Movies" });
   } else {
     alert("Please fill in all fields.");
     return;
