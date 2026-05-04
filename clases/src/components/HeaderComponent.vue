@@ -4,9 +4,9 @@
   <header>
     <nav>
       <ul class="header">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/movies">Movies</router-link></li>
+        <li><router-link to="/create-movie">Create Movie</router-link></li>
       </ul>
     </nav>
   </header>
@@ -23,5 +23,11 @@
 .header li a {
   text-decoration: none;
   color: inherit;
+}
+
+.header li a.router-link-active {
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
 }
 </style>

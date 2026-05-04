@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import HeaderComponent from "../components/HeaderComponent.vue";
 
 const movies = ref([
   { id: 1, title: "Movie 1", director: "Director 1", releaseYear: 2020 },
@@ -9,6 +10,7 @@ const movies = ref([
 </script>
 
 <template>
+  <HeaderComponent />
   <h1>Movies Page</h1>
   <div class="movies-container">
     <ul class="movies">
