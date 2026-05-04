@@ -1,5 +1,8 @@
 <script setup>
 import { reactive } from "vue";
+import { useMovieStore } from "../stores/movie";
+
+const movieStore = useMovieStore();
 
 const movies = reactive({
   title: "",
@@ -9,6 +12,12 @@ const movies = reactive({
 
 const handleSubmit = () => {
   if (movies.title && movies.director && movies.duration) {
+    movieStore.addMovie({
+      id: Date.now(),
+      title: movies.title,
+      director: movies.director,
+      releaseYear: new Date().getFullYear(),
+    });
     console.log("Movie submitted:", movies);
   } else {
     alert("Please fill in all fields.");

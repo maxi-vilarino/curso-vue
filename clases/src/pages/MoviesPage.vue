@@ -1,12 +1,9 @@
 <script setup>
-import { ref } from "vue";
 import HeaderComponent from "../components/HeaderComponent.vue";
+import { useMovieStore } from "../stores/movie";
 
-const movies = ref([
-  { id: 1, title: "Movie 1", director: "Director 1", releaseYear: 2020 },
-  { id: 2, title: "Movie 2", director: "Director 2", releaseYear: 2021 },
-  { id: 3, title: "Movie 3", director: "Director 3", releaseYear: 2022 },
-]);
+const movieStore = useMovieStore();
+const { movies } = movieStore;
 </script>
 
 <template>

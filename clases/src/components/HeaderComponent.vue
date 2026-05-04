@@ -17,7 +17,10 @@
   display: flex;
   gap: 1rem;
   list-style: none;
-  padding: 0;
+  padding: 1rem;
+  margin: 0;
+  background-color: blueviolet;
+  color: white;
 }
 
 .header li a {
@@ -27,7 +30,7 @@
 
 .header li a.router-link-active {
   font-weight: bold;
-  color: red;
+  color: yellow;
   text-decoration: underline;
 }
 </style>
